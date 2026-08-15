@@ -1,18 +1,29 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<article class="post-entry">
+  <header class="entry-header">
+    <h1>{{ .Title }}</h1>
+  </header>
 
-<h2>セクション</h2>
-<ul>
-  {{ range .Sections }}
-  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{ end }}
-</ul>
+  <div class="entry-content">
 
-<h2>記事</h2>
-<ul>
-  {{ range .Pages }}
-  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{ end }}
-</ul>
+    {{ if .Sections }}
+    <h2>セクション</h2>
+    <ul>
+      {{ range .Sections }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
 
+    {{ if .Pages }}
+    <h2>記事</h2>
+    <ul>
+      {{ range .Pages }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
+
+  </div>
+</article>
 {{ end }}
