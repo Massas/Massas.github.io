@@ -1,9 +1,9 @@
 ---
-title: "選手データ："
+title: "選手データ：マリアーノ・パルデーラ"
 date: 2026-08-16T00:19:00+09:00
 draft: false
 summary: "選手のスキル・メンタル・フィジカル・試合データのまとめ"
-tags: ["stats", "football"]
+tags: ["data", "brondby"]
 ---
 
 ## 基本情報
