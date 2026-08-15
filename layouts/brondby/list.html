@@ -15,10 +15,10 @@
     </ul>
     {{ end }}
 
-    {{ if .Pages }}
+    {{ if .RegularPages }}
     <h2>記事</h2>
     <ul>
-      {{ range .Pages }}
+      {{ range .RegularPages }}
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
       {{ end }}
     </ul>
