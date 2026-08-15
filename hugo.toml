@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "ja"
-title = "Massas Football Data"
+title = "Massas's Football Mamager 2023 Data"
 theme = "PaperMod"
 
 [pagination]
