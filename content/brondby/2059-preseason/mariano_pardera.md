@@ -14,6 +14,7 @@ tags: ["data", "brondby"]
 | 英名                         | Mariano Pardera |
 | 国籍                         | イタリア |
 | 出身地                         | Montelupo Fiorentino(イタリア) |
+| 年齢                         | 19 |
 | 代表歴                         | なし |
 | 身長                         | 199 cm |
 | 体重                         | 93 kg  |
