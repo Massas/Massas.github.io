@@ -1,0 +1,10 @@
+baseURL = "/"
+languageCode = "ja"
+title = "Massas Football Data"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  defaultTheme = "auto"
