@@ -3,7 +3,7 @@ title: "選手データ：マルコ・パヴァリーニ"
 date: 2026-08-16T00:19:00+09:00
 draft: false
 summary: "選手のスキル・メンタル・フィジカル・試合データのまとめ"
-tags: ["data", "brondby"]
+tags: ["data", "brondby", "marco_pavarini"]
 ---
 
 ## 基本情報
