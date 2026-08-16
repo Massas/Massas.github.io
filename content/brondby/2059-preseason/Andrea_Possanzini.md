@@ -15,7 +15,7 @@ tags: ["data", "brondby", "Andrea_Possanzini"]
 | 国籍                         | イタリア |
 | 出身地                       | Calliano Monferrato(イタリア) |
 | 年齢                         | 22 |
-| 代表歴                       | 元イタリアU-19代表(9試合) |
+| 代表歴                       | 元イタリアU-19代表 |
 | 身長                         | 194 cm |
 | 体重                         | 84 kg  |
 | ポジション                    | CF/LAM  |
