@@ -1,6 +1,6 @@
 ---
 title: "選手データ：オルネイカー"
-date: 2026-08-17T00:20:40+09:00
+date: 2026-08-17T00:20:50+09:00
 draft: false
 summary: "選手のスキル・メンタル・フィジカル・試合データのまとめ"
 tags: ["data", "brondby", "Holneiker_Coelho_Luiz"]
