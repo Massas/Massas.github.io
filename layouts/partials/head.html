@@ -1,9 +1,11 @@
+{{- $googleAnalyticsID := site.Params.googleAnalyticsID | default "" -}}
+{{- if and (hugo.IsProduction) (ne $googleAnalyticsID "") -}}
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R0JB4VHB5E"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalyticsID }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-
-  gtag('config', 'G-R0JB4VHB5E');
+  gtag('config', '{{ $googleAnalyticsID }}');
 </script>
+{{- end -}}
