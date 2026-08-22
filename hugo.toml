@@ -9,3 +9,8 @@ theme = "PaperMod"
 [params]
   defaultTheme = "auto"
   googleAnalyticsID = "G-R0JB4VHB5E"
+
+[[menus.main]]
+  name = "Brøndby IF"
+  pageRef = "/brondby"
+  weight = 10

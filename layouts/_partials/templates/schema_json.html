@@ -1,0 +1,85 @@
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{- ( site.Params.schema.publisherType | default "Organization") | title -}}",
+  "name": {{ site.Title | jsonify }},
+  "url": {{ site.Home.Permalink | jsonify }},
+  "description": {{ site.Params.description | default site.Title | plainify | truncate 180 | jsonify }},
+  "logo": {{ site.Params.assets.favicon | default "favicon.ico" | absURL | jsonify }}
+}
+</script>
+{{- else if (or .IsPage .IsSection) }}
+{{- $items := slice -}}
+{{- range .Ancestors.Reverse -}}
+{{- if and .Permalink (ne .Permalink site.Home.Permalink) -}}
+{{- $items = $items | append (dict "name" .Title "item" .Permalink) -}}
+{{- end -}}
+{{- end -}}
+{{- if .Permalink -}}
+{{- $items = $items | append (dict "name" .Title "item" .Permalink) -}}
+{{- end -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{- $n := 0 -}}
+    {{- range $item := $items -}}
+      {{- if gt $n 0 }},{{ end -}}
+      {
+        "@type": "ListItem",
+        "position": {{ add $n 1 }},
+        "name": {{ $item.name | jsonify }},
+        "item": {{ $item.item | jsonify }}
+      }
+      {{- $n = add $n 1 -}}
+    {{- end -}}
+    {{- if .Permalink -}}
+      {{- if gt $n 0 }},{{ end -}}
+      {
+        "@type": "ListItem",
+        "position": {{ add $n 1 }},
+        "name": {{ .Name | jsonify }},
+        "item": {{ .Permalink | jsonify }}
+      }
+    {{- end -}}
+  ]
+}
+</script>
+{{- if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ .Title | plainify | jsonify }},
+  "name": {{ .Title | plainify | jsonify }},
+  "description": {{ with .Description | plainify }}{{ . | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }},
+  "keywords": [
+    {{- if .Params.keywords -}}
+      {{ range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ $e | jsonify }}{{ end }}
+    {{- else -}}
+      {{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e | jsonify }}{{ end }}
+    {{- end -}}
+  ],
+  "articleBody": {{ .Content | plainify | jsonify }},
+  "wordCount": {{ .WordCount }},
+  "inLanguage": {{ .Language.Lang | default "en-us" | jsonify }},
+  "datePublished": {{ .PublishDate | jsonify }},
+  "dateModified": {{ .Lastmod | jsonify }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ .Permalink | jsonify }}
+  },
+  "publisher": {
+    "@type": "{{- ( site.Params.schema.publisherType | default "Organization") | title -}}",
+    "name": {{ site.Title | jsonify }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ site.Params.assets.favicon | default "favicon.ico" | absURL | jsonify }}
+    }
+  }
+}
+</script>
+{{- end }}{{/* .IsPage end */}}
+{{- end -}}

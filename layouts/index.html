@@ -1,0 +1,54 @@
+{{ define "main" }}
+<div class="content-card-layout">
+  <header class="entry-header">
+    <h1>{{ .Site.Title }}</h1>
+  </header>
+
+  <div class="entry-content">
+    <p class="lead-copy">チームや選手のデータをカテゴリ別にまとめて確認できます。</p>
+
+    <div class="card-grid card-grid--featured">
+      <a class="card-link" href="{{ "/brondby/" | relURL }}">
+        <div class="card-thumb card-thumb--club">
+          <span>Club</span>
+        </div>
+        <div class="card-body">
+          <h2>Brøndby IF</h2>
+          <p>クラブ情報とシーズン別のデータを整理したカテゴリです。</p>
+        </div>
+      </a>
+
+      <a class="card-link" href="{{ "/brondby/2059-preseason/" | relURL }}">
+        <div class="card-thumb card-thumb--season">
+          <span>2059</span>
+        </div>
+        <div class="card-body">
+          <h2>2059 シーズン開始前</h2>
+          <p>新シーズン前の選手情報と比較データをまとめています。</p>
+        </div>
+      </a>
+    </div>
+
+    {{ with .Site.GetPage "/brondby/2059-preseason" }}
+    <h2 class="section-heading">記事一覧</h2>
+    <div class="card-grid card-grid--articles">
+      {{ range .Pages.ByDate.Reverse }}
+      <a class="card-link" href="{{ .RelPermalink }}">
+        <div class="card-thumb card-thumb--player">
+          <span>⚽</span>
+        </div>
+        <div class="card-body">
+          <h3>{{ .Title }}</h3>
+          <p>{{ with .Summary }}{{ . | plainify | truncate 90 }}{{ else }}選手のスキル・メンタル・フィジカル・試合データのまとめ{{ end }}</p>
+          <div class="card-meta">
+            <span>選手データ</span>
+            <span>{{ .Date.Format "2006-01-02" }}</span>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

@@ -5,16 +5,25 @@
   </header>
 
   <div class="entry-content">
-
     {{ if .Pages }}
-    <h2>記事</h2>
-    <ul>
-      {{ range .Pages }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    <div class="card-grid card-grid--articles">
+      {{ range .Pages.ByDate.Reverse }}
+      <a class="card-link" href="{{ .RelPermalink }}">
+        <div class="card-thumb card-thumb--player">
+          <span>⚽</span>
+        </div>
+        <div class="card-body">
+          <h2>{{ .Title }}</h2>
+          <p>{{ with .Summary }}{{ . | plainify | truncate 90 }}{{ else }}選手のスキル・メンタル・フィジカル・試合データのまとめ{{ end }}</p>
+          <div class="card-meta">
+            <span>選手データ</span>
+            <span>{{ .Date.Format "2006-01-02" }}</span>
+          </div>
+        </div>
+      </a>
       {{ end }}
-    </ul>
+    </div>
     {{ end }}
-
   </div>
 </article>
 {{ end }}

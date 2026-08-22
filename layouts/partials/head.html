@@ -1,11 +1,1 @@
-{{- $googleAnalyticsID := site.Params.googleAnalyticsID | default "" -}}
-{{- if and (hugo.IsProduction) (ne $googleAnalyticsID "") -}}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalyticsID }}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', '{{ $googleAnalyticsID }}');
-</script>
-{{- end -}}
+<!-- Intentionally left blank. The active head override lives in layouts/_partials/head.html. -->

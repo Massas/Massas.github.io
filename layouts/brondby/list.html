@@ -5,25 +5,30 @@
   </header>
 
   <div class="entry-content">
-
-    {{ if .Sections }}
-    <h2>セクション</h2>
-    <ul>
+    <div class="card-grid">
       {{ range .Sections }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      <a class="card-link" href="{{ .RelPermalink }}">
+        <div class="card-thumb card-thumb--season">
+          <span>{{ .Title | truncate 8 }}</span>
+        </div>
+        <div class="card-body">
+          <h2>{{ .Title }}</h2>
+          <p>{{ with .Description }}{{ . }}{{ else }}カテゴリの一覧です。{{ end }}</p>
+        </div>
+      </a>
       {{ end }}
-    </ul>
-    {{ end }}
-
-    {{ if .RegularPages }}
-    <h2>記事</h2>
-    <ul>
-      {{ range .RegularPages }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ range .RegularPages.ByDate.Reverse }}
+      <a class="card-link" href="{{ .RelPermalink }}">
+        <div class="card-thumb card-thumb--player">
+          <span>⚽</span>
+        </div>
+        <div class="card-body">
+          <h3>{{ .Title }}</h3>
+          <p>{{ with .Summary }}{{ . | plainify | truncate 90 }}{{ else }}選手データのまとめ{{ end }}</p>
+        </div>
+      </a>
       {{ end }}
-    </ul>
-    {{ end }}
-
+    </div>
   </div>
 </article>
 {{ end }}
