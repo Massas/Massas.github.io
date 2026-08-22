@@ -4,7 +4,7 @@
     <h1>{{ .Title }}</h1>
   </header>
 
-  <div class="entry-content">
+  <div class="entry-content card-list-content">
     {{ if .Pages }}
     <div class="card-grid card-grid--articles">
       {{ range .Pages.ByDate.Reverse }}
