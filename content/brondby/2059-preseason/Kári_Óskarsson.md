@@ -1,6 +1,6 @@
 ---
 title: "選手データ：カーリ・オスカーソン"
-date: 2026-08-22T00:10:0+09:00
+date: 2026-08-22T00:10:00+09:00
 draft: false
 summary: "選手のスキル・メンタル・フィジカル・試合データのまとめ"
 tags: ["data", "brondby", "Kári_Óskarsson"]

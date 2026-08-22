@@ -1,6 +1,6 @@
 ---
 title: "選手データ：ホルヘ・アルベルト・ドミンゲス"
-date: 2026-08-22T00:20:0+09:00
+date: 2026-08-22T00:20:00+09:00
 draft: false
 summary: "選手のスキル・メンタル・フィジカル・試合データのまとめ"
 tags: ["data", "brondby", "Jorge_Alberto_Domínguez"]
