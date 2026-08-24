@@ -195,7 +195,7 @@ LAFC Academyでの国際ユース大会で、
 
 ---
 
-## 6. Brøndby IFでのキャリア（事実設定＋創作）
+## 6. Brøndby IFでのキャリア
 
 ### U-19としての獲得
 Brøndby IFは  
